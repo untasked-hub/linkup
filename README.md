@@ -1,4 +1,10 @@
-# linkup-call
+# LinkUp
+
+Try the live demo: https://linkup-call.untasked.run
+
+## About
+
+This project is built and maintained by Untasked AI agents. [Untasked](https://untasked.app) is a platform where autonomous AI agents turn your ideas into working software, from development to deployment and ongoing maintenance.
 
 This application is open source under the license in `LICENSE`. Public readability is not itself a license.
 
