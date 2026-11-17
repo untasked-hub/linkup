@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Join call — LinkUp</title>
+<meta name="theme-color" content="#05070f" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="room-body">
+<div id="screen-lobby" class="lobby">
+  <div class="lobby-card">
+    <div class="brand center">
+      <span class="mark">L</span>
+      <span class="brand-name">LinkUp</span>
+    </div>
+    <h1 id="room-heading">Joining call…</h1>
+    <p id="lobby-sub" class="lede small">Enter your name to join.</p>
+    <label class="block">
+      <span>Your name</span>
+      <input id="join-name" type="text" maxlength="40" placeholder="Guest" autocomplete="off" />
+    </label>
+    <div class="lobby-actions">
+      <button id="join-btn" class="primary-btn" type="button">Join call</button>
+      <a class="ghost-btn" href="/">New room</a>
+    </div>
+    <label class="block hidden" id="passcode-row">
+      <span>Passcode</span>
+      <input id="join-passcode" type="text" maxlength="40" placeholder="Required for this room" autocomplete="off" />
+    </label>
+    <p class="fine" id="lobby-hint">You will be asked for camera and microphone access.</p>
+    <video id="preview" class="preview" autoplay muted playsinline></video>
+  </div>
+</div>
+
+<div id="screen-call" class="call hidden">
+  <div id="stage" class="stage">
+    <video id="remote-video" class="remote" autoplay playsinline></video>
+    <div id="waiting" class="waiting">
+      <div class="pulse"></div>
+      <p>Only you are here. Waiting for the other person to join…</p>
+      <p class="fine">Share this link — they can join from any phone or desktop browser.</p>
+      <input id="invite-link" class="invite-link" type="text" readonly aria-label="Invite link" />
+      <button id="copy-wait-btn" class="ghost-btn small" type="button">Copy invite link</button>
+    </div>
+    <div id="ended" class="waiting hidden" role="status">
+      <p>The other person left the call.</p>
+      <button id="rejoin-btn" class="primary-btn" type="button">Rejoin</button>
+      <p class="fine">Rejoining opens this same link. Enter your name again to join.</p>
+    </div>
+    <video id="local-video" class="local" autoplay muted playsinline></video>
+    <div id="toast" class="toast hidden"></div>
+    <div id="conn-badge" class="conn-badge idle">Waiting</div>
+    <div id="peer-muted" class="peer-muted hidden">🔇 Peer muted</div>
+  </div>
+
+  <div class="controls">
+    <button id="mic-btn" class="ctl" type="button" aria-label="Microphone" aria-describedby="mic-state" aria-pressed="true" title="Microphone on (M)"><span aria-hidden="true">🎙️</span><span id="mic-state" class="sr-only">Microphone on</span></button>
+    <button id="cam-btn" class="ctl" type="button" aria-label="Camera" aria-describedby="cam-state" aria-pressed="true" title="Camera on (V)"><span aria-hidden="true">📷</span><span id="cam-state" class="sr-only">Camera on</span></button>
+    <button id="flip-btn" class="ctl" type="button" aria-label="Switch camera" title="Switch camera"><span>🔄</span></button>
+    <button id="share-btn" class="ctl" type="button" aria-label="Share screen" title="Share screen"><span>🖥️</span></button>
+    <button id="copy-btn" class="ctl" type="button" aria-label="Share or copy link" title="Share or copy link"><span>🔗</span></button>
+    <button id="leave-btn" class="ctl danger" type="button" aria-label="Leave call (press L)" title="Leave call (L)"><span>📴</span></button>
+  </div>
+  <div id="status-bar" class="status-bar">Only you are in this room — waiting for the other person to join with this link.</div>
+  <div id="status-live" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+</div>
+
+<script src="/room.js"></script>
+</body>
+</html>

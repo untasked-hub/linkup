@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>LinkUp — Video call links</title>
+<meta name="description" content="Create a shareable link for a browser video call. Works on iPhone, Android and desktop with no app install." />
+<meta name="theme-color" content="#0b1020" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="glow glow-a"></div>
+<div class="glow glow-b"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="mark">L</span>
+    <span class="brand-name">LinkUp</span>
+  </div>
+  <a class="ghost-btn" href="#how">How it works</a>
+</header>
+
+<main class="landing">
+  <section class="hero">
+    <p class="eyebrow">Browser video calls · no install</p>
+    <h1>One link.<br /><span class="grad">Any device.</span></h1>
+    <p class="lede">
+      Create a room and share the link. Anyone can join a live video call from
+      their phone, tablet or desktop — straight from the browser.
+    </p>
+
+    <form id="create-form" class="create-card" autocomplete="off">
+      <label>
+        <span>Your name</span>
+        <input id="host-name" name="hostName" type="text" maxlength="40" placeholder="Ada" required />
+      </label>
+      <label>
+        <span>Meeting name</span>
+        <input id="room-title" name="title" type="text" maxlength="80" placeholder="Design review" />
+      </label>
+      <label>
+        <span>Lock with a passcode <em>(optional)</em></span>
+        <input id="room-passcode" name="passcode" type="text" maxlength="40" placeholder="Only people you tell can join" autocomplete="off" />
+      </label>
+      <button id="create-btn" type="submit" class="primary-btn">
+        <span>Create call link</span>
+      </button>
+      <p class="fine">Free · encrypted peer-to-peer media · links expire after 24 hours</p>
+    </form>
+
+    <div id="result" class="result hidden">
+      <p class="result-label">Your call is ready</p>
+      <div class="link-row">
+        <input id="share-link" type="text" readonly />
+        <button id="copy-btn" type="button" class="copy-btn">Copy</button>
+      </div>
+      <div class="actions">
+        <a id="enter-btn" class="primary-btn" href="#">Enter call</a>
+        <a id="wa-btn" class="ghost-btn" href="#" target="_blank" rel="noopener">Share</a>
+      </div>
+      <p id="qr-note" class="fine">Open the link on your phone to join from there too.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <article>
+      <div class="icon">🔗</div>
+      <h3>Shareable links</h3>
+      <p>Every room gets a short, memorable link that works in any modern browser.</p>
+    </article>
+    <article>
+      <div class="icon">📱</div>
+      <h3>Phone-ready</h3>
+      <p>Built mobile-first with safe-area padding, front/rear camera flip and speaker-friendly audio.</p>
+    </article>
+    <article>
+      <div class="icon">🔒</div>
+      <h3>Peer to peer</h3>
+      <p>Media flows directly between devices over encrypted WebRTC. The server only relays setup messages.</p>
+    </article>
+    <article>
+      <div class="icon">🖥️</div>
+      <h3>Desktop quality</h3>
+      <p>Screen share, mute, camera toggle and a picture-in-picture layout for larger screens.</p>
+    </article>
+  </section>
+
+  <section id="how" class="how">
+    <h2>How it works</h2>
+    <ol>
+      <li><strong>Create</strong> a room and get a link instantly.</li>
+      <li><strong>Send</strong> it over any chat app — the recipient just taps it.</li>
+      <li><strong>Connect</strong> and the call starts automatically in the browser.</li>
+    </ol>
+  </section>
+
+  <section class="privacy" id="privacy">
+    <h2>Privacy, in plain words</h2>
+    <ul>
+      <li><strong>Video and audio go directly between devices.</strong> The people in the call can see your IP address, as with any peer-to-peer call. LinkUp does not relay your media.</li>
+      <li><strong>LinkUp does not record calls.</strong> Nothing is saved from the video or audio.</li>
+      <li><strong>The server keeps only what it needs.</strong> Room details, a hashed passcode if you set one, and the names people entered when they joined. Rooms are deleted after 24 hours.</li>
+      <li><strong>Rooms stay private by default.</strong> A room appears in the public list only if its host chooses to list it, and locked rooms never appear.</li>
+    </ul>
+  </section>
+
+  <section class="recent">
+    <h2>Recent rooms</h2>
+    <div id="recent-list" class="recent-list"><p class="fine">Loading…</p></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>LinkUp</span>
+  <span>Works best in Chrome, Edge, Safari 15+ and Firefox</span>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>
